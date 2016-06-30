@@ -316,7 +316,7 @@ module.exports = _react2.default.createClass({
     // Note: if touch very very quickly and continuous,
     // the variation of `index` more than 1.
     // parseInt() ensures it's always an integer
-    index = parseInt(index + diff / step);
+    index = parseInt(index + diff / step + 0.1);
 
     if (this.props.loop) {
       if (index <= -1) {
