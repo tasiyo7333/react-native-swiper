@@ -331,6 +331,16 @@ module.exports = _react2.default.createClass({
     }
   },
 
+  /**
+   * Function called when the page scrolling state has changed.
+   * @param  {string} state
+   * @see https://facebook.github.io/react-native/docs/viewpagerandroid.html#onpagescrollstatechanged
+   */
+  onPageScrollStateChangedAndoid: function onPageScrollStateChangedAndoid(state) {
+    if (state === 'dragging') {
+      this.onScrollBegin();
+    }
+  },
 
   /**
    * Update index after scroll
@@ -568,6 +578,7 @@ module.exports = _react2.default.createClass({
       }, this.props, {
         initialPage: this.props.loop ? this.state.index + 1 : this.state.index,
         onPageSelected: this.onScrollEnd,
+        onPageScrollStateChanged: this.onPageScrollStateChangedAndoid,
         style: { flex: 1 } }),
       pages
     );
